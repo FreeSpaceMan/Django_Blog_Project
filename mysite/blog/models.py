@@ -7,7 +7,7 @@ class Post(models.Model):
     author = models.ForeignKey('auth.User',on_delete=models.DO_NOTHING)
     title = models.CharField(max_length=256)
     text = models.TextField()
-    create_date = models.DateTimeField(default=timezone.now())
+    created_date = models.DateTimeField(default=timezone.now())
     published_date = models.DateTimeField(blank=True,null=True)
 
     def publish(self):
@@ -30,7 +30,7 @@ class Comment(models.Model):
     author = models.CharField(max_length=256)
     text = models.TextField()
     create_date = models.DateTimeField(default=timezone.now())
-    approved_cooment = models.BooleanField(default=False)
+    approved_comment = models.BooleanField(default=False)
 
     def approve(self):
         self.approved_comment = True
